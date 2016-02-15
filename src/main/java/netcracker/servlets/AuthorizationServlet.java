@@ -25,6 +25,6 @@ public class AuthorizationServlet extends HttpServlet {
         String password = request.getParameter("password");
         session.setAttribute("login", login);
         session.setAttribute("password", password);
-        response.sendRedirect("/AuthorizationAndJSP/jspactiontable");
+        response.sendRedirect("/jspactiontable");
     }
 }
