@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="netcracker.servlets.Action"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,19 +22,16 @@
                 <td>Syntax</td>
                 <td>Purpose</td>
             </tr>
-            <%
-                List<Action> listJspActions =  (List<Action>)request.getAttribute("listJspActions");
-                for (int i = 0; i < listJspActions.size(); i++) {
-            %>
-            <tr>
-                <td>
-                    <%=listJspActions.get(i).getSyntax()%>
-                </td>
-                <td>
-                    <%=listJspActions.get(i).getPurpose()%>
-                </td>
-            </tr>
-            <%}%>
+            <c:forEach var="action" items="${listJspActions}">
+                <tr>
+                    <td>
+                        ${action.getSyntax()}
+                    </td>
+                    <td>
+                        ${action.getPurpose()}
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
     </body>
 </html>
